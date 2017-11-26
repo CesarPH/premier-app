@@ -1,2 +1,13 @@
 /src/config
-/.idea
+.idea/*
+out
+out/*
+target/*
+target/classes/*
+target/test-classes/*
+target/surefire-reports/*
+settings.xml
+*.iml
+build/
+.gradle
+.gradle/*
