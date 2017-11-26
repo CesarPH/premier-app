@@ -1,4 +1,4 @@
-/src/config
+/src/main/java/config
 .idea/*
 out
 out/*
