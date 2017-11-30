@@ -1,5 +1,6 @@
 package model.fixtures;
 
+import model.FootballAPI;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -25,12 +26,7 @@ public class Fixtures {
         return fixturesArray;
     }
 
-    public Object getOne(int index) {
-        return null;
-    }
-
     public Fixture[] getAll() {
-        System.out.println();
         return fixtures;
     }
 
@@ -40,5 +36,22 @@ public class Fixtures {
 
     public int getCount() {
         return count;
+    }
+
+    public Fixture getNextGame() {
+        Fixture matchday = null;
+
+        for(int i=0; i < this.count; i++) {
+            if (!fixtures[i].getStatus().equalsIgnoreCase("finished")){
+                matchday = fixtures[i];
+                break;
+            }
+        }
+
+        if (!fixtures[this.count-1].getStatus().equalsIgnoreCase("finished")) {
+            throw new Error("No hay próximos partidos");
+        }
+
+        return matchday;
     }
 }
