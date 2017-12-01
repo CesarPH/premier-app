@@ -1,6 +1,6 @@
 package model.teamFactory;
 
-import model.fixtures.Fixtures;
+import model.teamFactory.fixtures.Fixtures;
 import org.json.JSONObject;
 
 public interface Team {

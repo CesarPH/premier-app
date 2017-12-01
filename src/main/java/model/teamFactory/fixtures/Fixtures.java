@@ -1,6 +1,5 @@
-package model.fixtures;
+package model.teamFactory.fixtures;
 
-import model.FootballAPI;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

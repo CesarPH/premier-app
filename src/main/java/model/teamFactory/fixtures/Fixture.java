@@ -1,4 +1,4 @@
-package model.fixtures;
+package model.teamFactory.fixtures;
 
 import org.json.JSONObject;
 
