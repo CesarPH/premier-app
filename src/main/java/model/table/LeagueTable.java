@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 
 public class LeagueTable {
+
     private String leagueCaption;
     private int currentMatchday;
     private Team[] standing;
@@ -21,14 +22,6 @@ public class LeagueTable {
         this.standing = this.constructStanding(res.getJSONArray("standing"));
         System.out.println(standing[0]);
 
-    }
-
-    public int getCurrentMatchday() {
-        return currentMatchday;
-    }
-
-    public Team[] getStanding() {
-        return standing;
     }
 
     private Team[] constructStanding(JSONArray standing){
@@ -46,5 +39,19 @@ public class LeagueTable {
         return teams;
 
     }
+
+    public int getCurrentMatchday() {
+        return currentMatchday;
+    }
+
+    public Team[] getStanding() {
+        return standing;
+    }
+
+    public String getLeagueCaption() {
+        return leagueCaption;
+    }
+
+
 
 }
