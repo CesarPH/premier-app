@@ -126,6 +126,51 @@ public abstract class TeamFactory {
         return null;
     }
 
-
+    public static int getID(int id){
+        switch (id) {
+            case 1:
+                return ARSENAL;
+            case 2:
+                return CHELSEA;
+            case 3:
+                return EVERTON;
+            case 4:
+                return LIVERPOOL;
+            case 5:
+                return MANCHESTER_CITY;
+            case 6:
+                return MANCHESTER_UNITED;
+            case 7:
+                return NEWCASTLE_UNITED;
+            case 8:
+                return STOKE_CITY;
+            case 9:
+                return SWANSEA_CITY;
+            case 10:
+                return TOTTENHAM_HOTSPUR;
+            case 11:
+                return WEST_BROMWICH_ALBION;
+            case 12:
+                return BURNLEY;
+            case 13:
+                return LEICESTER_CITY;
+            case 14:
+                return SOUTHAMPTON;
+            case 15:
+                return WATFORD;
+            case 16:
+                return CRYSTAL_PALACE;
+            case 17:
+                return HUDDERSFIELD_TOWN;
+            case 18:
+                return BRIGHT_AND_HOVE_ALBION;
+            case 19:
+                return WEST_HAM_UNITED;
+            case 20:
+                return AFC_BOURNEMOUTH;
+            default:
+                return 0;
+        }
+    }
 
 }
