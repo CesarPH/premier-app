@@ -5,11 +5,9 @@ import org.json.JSONObject;
 
 public class Fixtures {
     private Fixture[] fixtures;
-    private int season;
     private int count;
 
     public Fixtures(JSONObject res) {
-        this.season = res.getInt("season");
         this.count = res.getInt("count");
         this.fixtures = parseJSONArray(res.getJSONArray("fixtures"));
     }
@@ -27,10 +25,6 @@ public class Fixtures {
 
     public Fixture[] getAll() {
         return fixtures;
-    }
-
-    public int getSeason() {
-        return season;
     }
 
     public int getCount() {
