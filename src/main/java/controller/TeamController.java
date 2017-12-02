@@ -1,6 +1,7 @@
 package controller;
 
 import model.teamFactory.Team;
+import model.teamFactory.fixtures.Fixtures;
 import view.TeamView;
 
 public class TeamController {
@@ -13,8 +14,11 @@ public class TeamController {
         this.teamView = teamView;
     }
 
+
+
     public void updateView() {
-        teamView.printTeam(teamModel.getName(),teamModel.getCode(), teamModel.getShortName());
+        teamView.header(teamModel.getName(),teamModel.getCode(), teamModel.getShortName());
+        
     }
 
 
