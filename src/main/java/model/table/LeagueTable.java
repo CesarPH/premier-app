@@ -16,22 +16,20 @@ public class LeagueTable {
     public LeagueTable(){
         FootballAPI api = FootballAPI.getInstance();
         JSONObject res = api.connect(FootballAPI.URL + "/competitions/445/leagueTable");
+
         this.currentMatchday = res.getInt("matchday");
         this.leagueCaption = res.getString("leagueCaption");
-
         this.standing = this.constructStanding(res.getJSONArray("standing"));
-        System.out.println(standing[0]);
-
     }
 
     private Team[] constructStanding(JSONArray standing){
         Team[] teams = new Team[standing.length()];
 
-
         for (int i=0; i < standing.length(); i++) {
             JSONObject team = standing.getJSONObject(i);
             String href = team.getJSONObject("_links").getJSONObject("team").getString("href");
-            int id = Integer.parseInt(href.substring(href.length()-2,href.length()));
+            int posLastSlash = href.lastIndexOf('/');
+            int id = Integer.parseInt(href.substring(posLastSlash+1,href.length()));
 
             teams[i] = TeamFactory.createTeamForTable(id, team);
         }
