@@ -15,7 +15,7 @@ public class LeagueTable {
 
     public LeagueTable(){
         FootballAPI api = FootballAPI.getInstance();
-        JSONObject res = api.connect(FootballAPI.URL + "/competitions/445/leagueTable");
+        JSONObject res = api.request(FootballAPI.URL + "/competitions/445/leagueTable");
 
         this.currentMatchday = res.getInt("matchday");
         this.leagueCaption = res.getString("leagueCaption");

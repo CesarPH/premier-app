@@ -20,7 +20,7 @@ public class AFCBournemouth implements Team {
     private String url = FootballAPI.URL + "/teams/1044/";
 
     public AFCBournemouth() {
-        JSONObject res = api.connect(url);
+        JSONObject res = api.request(url);
         this.name = res.getString("name");
         this.code = res.getString("code");
         this.shortName = res.getString("shortName");
@@ -41,14 +41,14 @@ public class AFCBournemouth implements Team {
 
     @Override
     public Fixtures getFixtures() {
-        JSONObject res = api.connect(url + "fixtures");
+        JSONObject res = api.request(url + "fixtures");
         Fixtures fixtures = new Fixtures(res);
         return fixtures;
     }
 
     @Override
     public JSONObject getPlayers() {
-        return api.connect(url + "players");
+        return api.request(url + "players");
     }
 
     @Override

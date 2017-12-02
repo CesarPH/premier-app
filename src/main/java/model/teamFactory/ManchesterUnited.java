@@ -20,7 +20,7 @@ public class ManchesterUnited implements Team {
     private String url = FootballAPI.URL + "/teams/66/";
 
     public ManchesterUnited(){
-        JSONObject res = api.connect(url);
+        JSONObject res = api.request(url);
         this.name = res.getString("name");
         this.code = res.getString("code");
         this.shortName = res.getString("shortName");
@@ -39,14 +39,14 @@ public class ManchesterUnited implements Team {
 
     @Override
     public Fixtures getFixtures() {
-        JSONObject res = api.connect(url +"fixtures");
+        JSONObject res = api.request(url +"fixtures");
         Fixtures fixture = new Fixtures(res);
         return fixture;
     }
 
     @Override
     public JSONObject getPlayers() {
-        return api.connect(url + "players");
+        return api.request(url + "players");
     }
 
     public String getName() {
