@@ -37,7 +37,7 @@ public class ManchesterCity implements Team{
         this.draws = team.getInt("draws");
         this.losses = team.getInt("losses");
     }
-
+    
 
     @Override
     public Fixtures getFixtures() {
@@ -49,5 +49,55 @@ public class ManchesterCity implements Team{
     @Override
     public JSONObject getPlayers() {
         return api.connect(url + "players");
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getCode() {
+        return code;
+    }
+
+    @Override
+    public String getShortName() {
+        return shortName;
+    }
+
+    @Override
+    public int getPosition() {
+        return position;
+    }
+
+    @Override
+    public int getPlayedGames() {
+        return playedGames;
+    }
+
+    @Override
+    public int getGoalsFor() {
+        return goalsFor;
+    }
+
+    @Override
+    public int getGoalsAgainst() {
+        return goalsAgainst;
+    }
+
+    @Override
+    public int getWins() {
+        return wins;
+    }
+
+    @Override
+    public int getDraws() {
+        return draws;
+    }
+
+    @Override
+    public int getLosses() {
+        return losses;
     }
 }

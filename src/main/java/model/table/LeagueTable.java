@@ -8,17 +8,27 @@ import org.json.JSONObject;
 
 
 public class LeagueTable {
-    private FootballAPI api = FootballAPI.getInstance();
+    private String leagueCaption;
     private int currentMatchday;
     private Team[] standing;
 
     public LeagueTable(){
+        FootballAPI api = FootballAPI.getInstance();
         JSONObject res = api.connect(FootballAPI.URL + "/competitions/445/leagueTable");
         this.currentMatchday = res.getInt("matchday");
+        this.leagueCaption = res.getString("leagueCaption");
 
         this.standing = this.constructStanding(res.getJSONArray("standing"));
         System.out.println(standing[0]);
 
+    }
+
+    public int getCurrentMatchday() {
+        return currentMatchday;
+    }
+
+    public Team[] getStanding() {
+        return standing;
     }
 
     private Team[] constructStanding(JSONArray standing){
