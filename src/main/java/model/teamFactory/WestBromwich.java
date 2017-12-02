@@ -1,10 +1,10 @@
 package model.teamFactory;
 
-import model.teamFactory.fixtures.Fixtures;
 import model.FootballAPI;
+import model.teamFactory.fixtures.Fixtures;
 import org.json.JSONObject;
 
-public class ManchesterUnited implements Team {
+public class WestBromwich implements Team {
     private String name;
     private String code;
     private String shortName;
@@ -17,16 +17,17 @@ public class ManchesterUnited implements Team {
     private int losses;
 
     private FootballAPI api = FootballAPI.getInstance();
-    private String url = FootballAPI.URL + "/teams/66/";
+    private String url = FootballAPI.URL + "/teams/74/";
 
-    public ManchesterUnited(){
+    public WestBromwich() {
         JSONObject res = api.request(url);
         this.name = res.getString("name");
         this.code = res.getString("code");
         this.shortName = res.getString("shortName");
+
     }
 
-    public ManchesterUnited(JSONObject team){
+    public WestBromwich(JSONObject team){
         this.name = team.getString("teamName");
         this.position = team.getInt("position");
         this.playedGames = team.getInt("playedGames");
@@ -37,11 +38,12 @@ public class ManchesterUnited implements Team {
         this.losses = team.getInt("losses");
     }
 
+
     @Override
     public Fixtures getFixtures() {
-        JSONObject res = api.request(url +"fixtures");
-        Fixtures fixture = new Fixtures(res);
-        return fixture;
+        JSONObject res = api.request(url + "fixtures");
+        Fixtures fixtures = new Fixtures(res);
+        return fixtures;
     }
 
     @Override
@@ -49,6 +51,7 @@ public class ManchesterUnited implements Team {
         return api.request(url + "players");
     }
 
+    @Override
     public String getName() {
         return name;
     }

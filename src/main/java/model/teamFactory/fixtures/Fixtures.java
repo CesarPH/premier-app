@@ -47,7 +47,7 @@ public class Fixtures {
             }
         }
 
-        if (!fixtures[this.count-1].getStatus().equalsIgnoreCase("finished")) {
+        if (fixtures[this.count-1].getStatus().equalsIgnoreCase("finished")) {
             throw new Error("No hay próximos partidos");
         }
 

@@ -28,7 +28,7 @@ public class FootballAPI {
         return instance;
     }
 
-    public JSONObject connect(String urlRequest) {
+    public JSONObject request(String urlRequest) {
 
         try {
             URL url = new URL(urlRequest);
