@@ -1,26 +1,28 @@
 package view;
 
-import model.table.LeagueTable;
-import model.teamFactory.Team;
 
 public class LeagueTableView {
 
-    public void printTable(LeagueTable leagueTable) {
-        Team[] standing = leagueTable.getStanding();
+    public void header(String leagueName, int matchday) {
         String format = "|%1$-5s|%2$-25s|%3$-3s|%4$-3s|%5$-3s|%6$-3s|%7$-3s|%8$-3s|%9$-3s|%10$-3s|\n";
 
-        System.out.println(leagueTable.getLeagueCaption());
-        System.out.println("Semana actual: " + leagueTable.getCurrentMatchday());
+        System.out.println(leagueName);
+        System.out.println("Semana actual: " + matchday);
+        System.out.println();
 
         System.out.format(format, "Pos", "Club", "PJ","G", "E", "P", "GF", "GC", "DG", "Pts");
         System.out.println("-----------------------------------------------------------------");
 
-        for (Team team : standing) {
-            System.out.format(format, team.getPosition(),
-                    team.getName(), team.getPlayedGames(), team.getWins(), team.getDraws(), team.getLosses(), team.getGoalsFor(),
-                    team.getGoalsAgainst(), this.getGoalDiff(team.getGoalsFor(), team.getGoalsAgainst()), this.getPoints(team.getWins(), team.getDraws()));
-        }
+    }
 
+    public void addRow(int pos, String name, int playedGames, int wins, int draws, int losses, int goalsFor, int goalsAgainst){
+        String format = "|%1$-5s|%2$-25s|%3$-3s|%4$-3s|%5$-3s|%6$-3s|%7$-3s|%8$-3s|%9$-3s|%10$-3s|\n";
+
+        System.out.format(format, pos, name, playedGames, wins, draws, losses, goalsFor, goalsAgainst,
+                this.getGoalDiff(goalsFor, goalsAgainst), this.getPoints(wins, draws));
+    }
+
+    public void footer() {
         System.out.println("");
         System.out.println("PJ: Partidos Jugados");
         System.out.println("G: Ganados");
