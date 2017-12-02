@@ -13,8 +13,10 @@ public class LeagueFixturesView {
 
     public void addFixture(String home, String away, Object goalsHome, Object goalsAway) {
         String format = "%1$-25s %2$-3s-  %3$-3s %4$-25s\n\n";
-        if (!(goalsAway == null)) {
+        if (!goalsAway.equals(null)) {
             System.out.format(format, home, goalsHome, goalsAway, away);
+        }else {
+            System.out.format(format, home, "", "", away);
         }
     }
 
